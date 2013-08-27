@@ -1,0 +1,53 @@
+//copyright @Techxetra13//
+var speedx=10  ;lama=0;speedev=40;xray=140;yoyo=100;lefti=1000;ground=257;r=500;m=500;g=10;tony=0;bjpbjpval2=bjpval2=0;ground1=119;ground2=390;blankh=700;ground3=10;
+
+ function got(param,param1){
+ if(xray>=140){
+document.getElementById(''+param+'').style.width=xray+'px';xray=xray-20;
+document.getElementById(''+param+'').style.height=yoyo+'px';yoyo=yoyo-16;
+document.getElementById(''+param+'').style.left=lefti+'px';lefti=lefti+28;
+if(param=='impulse'){
+ document.getElementById(''+param+'').style.top=ground+'px';ground=ground+9.2;}
+else if(param=='quiz'){document.getElementById(''+param+'').style.top=ground2+'px';ground2=ground2+14;}
+else if(param=='management'){document.getElementById(''+param+'').style.top=ground1+'px';ground1=ground1+6;}
+
+else if(param=='robotics'){document.getElementById(''+param+'').style.top=ground3+'px';ground3=ground3+3;} 
+ 
+}
+if(xray<=140){popUp(''+param1+'');
+if(param=='impulse'){$('#info1').fadeOut('slow');   }
+else if(param=='management'){$('#info2').fadeOut('slow');   }
+else if(param=='quiz'){$('#info3').fadeOut('slow');   }
+else if(param=='robotics'){$('#info4').fadeOut('slow');   }
+clearTimeout(opat);return;}
+opat=setTimeout(function(){got(param,param1);},7);
+}
+
+function popUp(code){ 
+document.getElementById('fonts').style.zIndex=99 ;
+var bjpval21=code;
+if(xray>=760){ got(''+bjpbjpval2+'',''+bjpval21+'');return;}
+ var bjpval2=code; bjpbjpval2;
+if(xray<=760){
+document.getElementById(''+bjpval2+'').style.width=xray+'px'; xray=xray+20;
+document.getElementById(''+bjpval2+'').style.height=yoyo+'px';yoyo=yoyo+16;
+document.getElementById(''+bjpval2+'').style.left=lefti+'px';lefti=lefti-28;
+if(bjpval2=='impulse'){document.getElementById(''+bjpval2+'').style.top=ground+'px';ground=ground-9.2;}
+
+else if(bjpval2=='management'){document.getElementById(''+bjpval2+'').style.top=ground1+'px';ground1=ground1-6;}
+
+else if(bjpval2=='quiz'){document.getElementById(''+bjpval2+'').style.top=ground2+'px';ground2=ground2-14;$('#quizblog').fadeOut('slow');} 
+else if(bjpval2=='robotics'){document.getElementById(''+bjpval2+'').style.top=ground3+'px';ground3=ground3-3;} 
+
+} 
+if(xray>=750){bjpbjpval2=bjpval2; 
+if(bjpval2=='impulse'){$('#info1').fadeIn('slow');   }
+else if(bjpval2=='management'){$('#info2').fadeIn('slow');   }
+else if(bjpval2=='quiz'){$('#info3').fadeIn('slow');   }
+else if(bjpval2=='robotics'){$('#info4').fadeIn('slow');   }
+
+
+document.getElementById('fonts').style.zIndex=109 ;clearTimeout(opata);return;}
+
+opata=setTimeout(function(){popUp(code);},7);
+}
